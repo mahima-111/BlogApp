@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    button{
+        @apply px-4 py-1 rounded-md text-white font-medium text-center text-lg bg-gradient-to-r from-sky-400 to-violet-400 hover:from-sky-400 hover:to-violet-500 duration-300
+    }
+    .category-box{
+        @apply px-2 py-1 rounded-md text-white  text-center text-base bg-gradient-to-r from-sky-400 to-violet-400 
+    }
+    .logo{
+        @apply bg-gradient-to-r from-sky-400 to-violet-400 text-4xl font-bold py-1;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    input,textarea{
+        @apply px-2 py-1 outline-none border-blue-400 border-2 text-lg rounded-md
+    }
+    label{
+        @apply text-xl font-medium mb-1
+    }
+}
