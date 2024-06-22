@@ -6,7 +6,7 @@ import authRouter from './routes/authRoutes.js';
 import blogRouter from './routes/blogRoutes.js';
 import cookieParser from 'cookie-parser';
 
-const corsOptions = { origin: ['http://localhost:5173','https://blogify-nqbw.vercel.app'], credentials: true }
+const corsOptions = { origin: ['http://localhost:5173','https://blogify-dvmo.onrender.com'], credentials: true }
 const app=express();
 app.use(cors(corsOptions));
 app.use(express.json());
