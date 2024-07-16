@@ -45,7 +45,7 @@ export const loginUser=async(req,res,next)=>{
         //store token in local storage
         res.cookie('jwt',token,{httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
-            sameSite: 'Strict',
+            sameSite: 'None',
         });
 
         // res.status(200).json({
