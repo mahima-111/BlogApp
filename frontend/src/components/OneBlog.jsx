@@ -5,6 +5,7 @@ import axios from 'axios';
 import { FaRegEdit } from "react-icons/fa";
 import { UserContext } from '../context/UserContext.jsx';
 import { FaHeart } from "react-icons/fa6";
+import toast from 'react-hot-toast';
 
 const OneBlog = () => {
     const {userInfo}=useContext(UserContext);
@@ -24,7 +25,7 @@ const OneBlog = () => {
 
     const getBlog=async()=>{
         try{
-            const res=await axios.get(import.meta.env.VITE_BACKEND_URL+`/api/blog/${blogId}`);
+            const res=await axios.get(import.meta.env.VITE_BACKEND_URL+`/api/blog/${blogId}`,{withCredentials: true});
             if(res.status===200){
                 setBlogObj(res.data);
                 setIsLiked(res.data.likes?.includes(currentUserId));
@@ -46,7 +47,7 @@ const OneBlog = () => {
             return;
         }
         try{
-            const res=await axios.put(import.meta.env.VITE_BACKEND_URL+'/api/blog/like',{blogId:_id});
+            const res=await axios.put(import.meta.env.VITE_BACKEND_URL+'/api/blog/like',{blogId:_id},{withCredentials: true});
             if(res.status===200){
                 setIsLiked(true);
                 setLikeCounter(res.data);
@@ -59,7 +60,7 @@ const OneBlog = () => {
 
     const handleUnlike=async()=>{
         try{
-            const res=await axios.put(import.meta.env.VITE_BACKEND_URL+'/api/blog/unlike',{blogId:_id});
+            const res=await axios.put(import.meta.env.VITE_BACKEND_URL+'/api/blog/unlike',{blogId:_id},{withCredentials: true});
             if(res.status===200){
                 setIsLiked(false);
                 setLikeCounter(res.data);

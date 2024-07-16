@@ -8,7 +8,7 @@ const BlogList = () => {
     const [errMsg,setErrMsg]=useState('');
     const getBlogs= async(query)=>{
         try{
-            const res=await axios.get(import.meta.env.VITE_BACKEND_URL+`/api/blog/${query}`);
+            const res=await axios.get(import.meta.env.VITE_BACKEND_URL+`/api/blog/${query}`,{withCredentials: true});
             if(res.status===200){
                 if(res.data.length===0){
                     setErrMsg('No blogs found...')

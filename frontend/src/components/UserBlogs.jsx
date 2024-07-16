@@ -9,7 +9,7 @@ const UserBlogs = () => {
     const user=userInfo.username;
     const getBlogs= async()=>{
         try{
-            const res=await axios.get(import.meta.env.VITE_BACKEND_URL+'/api/blog/user-blogs');
+            const res=await axios.get(import.meta.env.VITE_BACKEND_URL+'/api/blog/user-blogs',{withCredentials: true});
             if(res.status===200){
                 setList(res.data);
             }

@@ -25,7 +25,7 @@ const CreateBlog = () => {
             return;
         }
         try{
-            const res=await axios.post(import.meta.env.VITE_BACKEND_URL+'/api/blog/create',formData);
+            const res=await axios.post(import.meta.env.VITE_BACKEND_URL+'/api/blog/create',formData,{withCredentials: true});
             if(res.status===200){
                 toast.success('blog created successfully');
                 navigate('/');

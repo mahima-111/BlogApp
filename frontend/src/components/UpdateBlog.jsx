@@ -12,7 +12,7 @@ const UpdateBlog = () => {
     const navigate=useNavigate();
     const getBlog=async()=>{
         try{
-            const res=await axios.get(import.meta.env.VITE_BACKEND_URL+`/api/blog/${blogId}`);
+            const res=await axios.get(import.meta.env.VITE_BACKEND_URL+`/api/blog/${blogId}`,{withCredentials: true});
             if(res.status===200){
                 setBlogObj(res.data);
             }
@@ -36,7 +36,7 @@ const UpdateBlog = () => {
             desc: descRef.current.value,
         }
         try{
-            const res=await axios.put(import.meta.env.VITE_BACKEND_URL+`/api/blog/update/${blogId}`,formData);
+            const res=await axios.put(import.meta.env.VITE_BACKEND_URL+`/api/blog/update/${blogId}`,formData,{withCredentials: true});
 
             if(res.status===200){
                 toast.success('blog updated successfully');

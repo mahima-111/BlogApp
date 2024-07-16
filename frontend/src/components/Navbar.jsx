@@ -17,7 +17,7 @@ const Navbar = () => {
     const handleLogout=async()=>{
         try{
             setIsOpen(false);
-            const res=await axios.post(import.meta.env.VITE_BACKEND_URL+'/api/auth/logout');
+            const res=await axios.post(import.meta.env.VITE_BACKEND_URL+'/api/auth/logout',{withCredentials: true});
             if(res.status===200){
                 setUserInfo({
                     _id:'',

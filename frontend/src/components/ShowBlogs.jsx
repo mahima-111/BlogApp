@@ -22,7 +22,7 @@ const ShowBlogs = ({elem,getBlogs}) => {
             return;
         }
         try{
-            const res=await axios.put(import.meta.env.VITE_BACKEND_URL+'/api/blog/like',{blogId:_id});
+            const res=await axios.put(import.meta.env.VITE_BACKEND_URL+'/api/blog/like',{blogId:_id},{withCredentials: true});
             if(res.status===200){
                 setIsLiked(true);
                 setLikeCounter(res.data);
@@ -35,7 +35,7 @@ const ShowBlogs = ({elem,getBlogs}) => {
 
     const handleUnlike=async()=>{
         try{
-            const res=await axios.put(import.meta.env.VITE_BACKEND_URL+'/api/blog/unlike',{blogId:_id});
+            const res=await axios.put(import.meta.env.VITE_BACKEND_URL+'/api/blog/unlike',{blogId:_id},{withCredentials: true});
             if(res.status===200){
                 setIsLiked(false);
                 setLikeCounter(res.data);
